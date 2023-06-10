@@ -9,6 +9,10 @@ dep <- read.csv(
 for (i in seq_along(dep)) {
   install.packages(
     dep[i],
-    repos = c(REPO_NAME = "https://packagemanager.rstudio.com/all/__linux__/jammy/latest")
+    repos = c(REPO_NAME = "https://packagemanager.rstudio.com/all/__linux__/jammy/latest"),
+    lib = file.path(
+      Sys.getenv("R_HOME"),
+      "library"
+    )
   )
 }
