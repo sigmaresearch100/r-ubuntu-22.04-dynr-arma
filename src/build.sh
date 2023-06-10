@@ -9,7 +9,7 @@ Rscript -e "                                              \
         package = 'roxygen2',                             \
         version = '5.0.1',                                \
         repos = c(CRAN = 'https://cran.rstudio.com'),     \
-        lib = file.path(Sys.getenv("R_HOME"), "library")  \
+        lib = file.path(Sys.getenv('R_HOME'), 'library')  \
     )                                                     \
 "
 
