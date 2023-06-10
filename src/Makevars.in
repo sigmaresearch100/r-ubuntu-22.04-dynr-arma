@@ -1,0 +1,24 @@
+CXX_STD = CXX11
+
+# New additions to allow use of OpenMP from gfortran
+CC=/usr/local/clang4/bin/clang
+CXX=/usr/local/clang4/bin/clang++
+CXX11=$CXX
+CXX14=$CXX
+CXX17=$CXX
+CXX1X=$CXX
+LDFLAGS=-L/usr/local/clang4/lib
+
+
+# set by configure
+GSL_CFLAGS = @GSL_CFLAGS@
+GSL_LIBS = @GSL_LIBS@
+
+FC = /usr/local/gfortran/bin/gfortran
+FLIBS = -L/usr/local/gfortran/lib/gcc/x86_64-apple-darwin18/8.2.0 -L/usr/local/gfortran/lib -lgfortran -lquadmath -lm
+
+FLIBS = -L`gfortran -print-file-name=libgfortran.dylib | xargs dirname`
+
+# combine with standard arguments for R
+PKG_CPPFLAGS = $(GSL_CFLAGS) $(SHLIB_OPENMP_CXXFLAGS) `${R_HOME}/bin/Rscript -e "Rcpp:::LdFlags()"` `${R_HOME}/bin/Rscript -e "RcppArmadillo:::CxxFlags()"`
+PKG_LIBS = $(GSL_LIBS) $(SHLIB_OPENMP_CXXFLAGS) $(LAPACK_LIBS) $(BLAS_LIBS) $(FLIBS)
