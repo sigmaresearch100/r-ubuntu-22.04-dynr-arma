@@ -19,8 +19,8 @@ Rscript -e "                                              \
 "
 
 git clone -b arma https://github.com/mhunter1/dynr.git
+yes | cp -rf ${PWD}/src/Makevars.in ${PWD}/dynr/src/Makevars.in
 cd dynr
-wget -q https://raw.githubusercontent.com/sigmaresearch100/r-ubuntu-22.04-dynr/main/src/Makevars.in -O src/Makevars.in
 ./configure
 make clean install
 cd ..
