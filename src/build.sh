@@ -19,7 +19,6 @@ Rscript -e "                                              \
 "
 
 git clone -b arma https://github.com/mhunter1/dynr.git
-yes | cp -rf ${PWD}/src/Makevars.in ${PWD}/dynr/src/Makevars.in
 cd dynr
 ./configure
 make clean install
