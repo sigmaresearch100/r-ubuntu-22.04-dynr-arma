@@ -8,7 +8,8 @@ Rscript -e "                                              \
     remotes::install_version(                             \
         package = 'roxygen2',                             \
         version = '5.0.1',                                \
-        repos = c(CRAN = 'https://cran.rstudio.com')      \
+        repos = c(CRAN = 'https://cran.rstudio.com'),     \
+        lib = file.path(Sys.getenv("R_HOME"), "library")  \
     )                                                     \
 "
 
