@@ -27,15 +27,12 @@ jobs:
       -
         name: remotes and rprojroot
         run: sudo Rscript ${PWD}/src/000.R
-
       -
         name: dependencies ubuntu
         run: sudo bash ${PWD}/src/dep.sh
-
       -
         name: R dependencies
         run: sudo Rscript ${PWD}/src/dep.R
-
       -
         name: build package
         run: sudo bash ${PWD}/src/build.sh
