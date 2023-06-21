@@ -1,38 +1,31 @@
-name: Build in Ubuntu-22.04
+name: Build in Ubuntu-22.04 (Runner)
 
 on:
   schedule:
-    - cron:  '0 2 ? * SUN'
+    - cron: "0 0 * * 0"
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
-    env:
-      UBUNTU_VERSION: jammy
+    runs-on: ubuntu-latest
 
     steps:
       -
         name: Check out repository
         uses: actions/checkout@v3
       -
-        name: ppa
-        run: wget https://raw.githubusercontent.com/rocker-org/rocker-versioned2/master/scripts/install_R_ppa.sh | sudo bash
-      -
-        name: install
-        run: wget https://raw.githubusercontent.com/rocker-org/rocker-versioned2/master/scripts/install_R_source.sh | sudo bash
-      -
         name: remotes and rprojroot
-        run: sudo Rscript ${PWD}/src/000.R
+        run: sudo Rscript ${PWD}/tools/000.R
       -
         name: system dependencies
-        run: sudo bash ${PWD}/src/dep.sh
+        run: sudo bash ${PWD}/tools/dep.sh
       -
         name: R dependencies
-        run: sudo Rscript ${PWD}/src/dep.R
+        run: sudo Rscript ${PWD}/tools/dep.R
       -
         name: build package
-        run: sudo bash ${PWD}/src/build.sh
+        run: sudo bash ${PWD}/tools/build.sh

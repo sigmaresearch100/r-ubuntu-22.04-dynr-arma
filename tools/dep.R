@@ -1,7 +1,7 @@
 root <- rprojroot::is_rstudio_project
 dep <- read.csv(
   root$find_file(
-    "src",
+    "tools",
     "dep-r.csv"
   ),
   head = FALSE
