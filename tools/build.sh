@@ -3,7 +3,7 @@
 set -e
 
 # Solution to hard-coded Makevars in the arma branch
-Rcript -e "                 \
+Rscript -e "                 \
     install.packages(       \
         c(                  \
           'Rcpp',           \
@@ -16,7 +16,7 @@ Rcript -e "                 \
 "
 
 # Solution to documentation issues
-Rcript -e "                                               \
+Rscript -e "                                               \
     remotes::install_version(                             \
         package = 'roxygen2',                             \
         version = '5.0.1',                                \
