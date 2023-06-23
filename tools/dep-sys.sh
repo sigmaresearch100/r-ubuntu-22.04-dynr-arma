@@ -1,0 +1,15 @@
+,git
+curl,libcurl4-openssl-dev
+freetype2,libfontconfig1-dev
+freetype2,libfreetype6-dev
+freetype2,libjpeg-dev
+freetype2,libpng-dev
+freetype2,libtiff5-dev
+nloptr,cmake
+openssl,libssl-dev
+systemfonts,libfontconfig1-dev
+textshaping,libfribidi-dev
+textshaping,libharfbuzz-dev
+xml2,libxml2-dev
+misc3d,tcl8.6-dev
+misc3d,tk8.6-dev
