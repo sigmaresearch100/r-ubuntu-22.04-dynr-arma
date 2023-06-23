@@ -24,6 +24,22 @@ Rscript -e "                                               \
     )                                                     \
 "
 
+# dynrautoVAR
+Rscript -e "          \
+    install.packages( \
+        c(            \
+          'qgraph',   \
+          'igraph',   \
+          'fclust'    \
+        ),            \
+        repos = 'https://packagemanager.rstudio.com/all/__linux__/jammy/latest', \
+    )                                                                            \
+"
+
+# qgraph
+apt-get install -y \
+  libglpk-dev
+
 # tinytex
 Rscript -e "                                              \
     try(tinytex::install_tinytex())                       \
